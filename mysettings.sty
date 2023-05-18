@@ -1,0 +1,142 @@
+% Packages %
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{mathrsfs}
+\usepackage{mleftright}
+\usepackage{textcomp}
+\usepackage{url}
+
+%%% Tikz %%%
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{tikzmark,calc,topaths}
+
+%%% Japanese  %%%
+\usepackage{pxrubrica}
+
+\begingroup
+\catcode`\,=\active
+\def\@x@{\def,{\normalcomma\hskip.25em}}
+\expandafter\endgroup\@x@%
+\mathcode`\,="8000
+\def\normalcomma{\mathchar"613B} 
+
+\medmuskip=4mu plus 1mu minus 2mu % 数式のワードスペース
+
+\DeclareEmphSequence{\gtfamily\itshape, \normalfont\gtfamily\sffamily\bfseries, \normalfont\itshape} % emph のフォント
+
+%%%%% フォントの指定 %%%%%
+\usepackage{luatexja-fontspec}
+\setmainfont{Yu Mincho Regular}
+\setmainjfont[
+Script=Default,
+YokoFeatures={JFM=prop},
+CharacterWidth=Proportional,
+Kerning=On,
+BoldFont={Yu Gothic Bold} % 太字
+]{Yu Mincho Regular}%
+
+%%% hyperref %%%
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+citecolor=red,
+linkcolor=blue,
+urlcolor=blue,
+}
+
+%%% cleveref %%%
+\usepackage{cleveref}
+\crefname{figure}{図}{図}
+
+\newcommand{\crefpairconjunction}{and}
+\newcommand{\crefrangeconjunction}{--}
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\creflastconjunction}{, and}
+
+\creflabelformat{section}{#2第#1節#3}
+\crefname{section}{}{}
+\crefname{subsection}{}{}
+\crefname{appendix}{Appendix}{Appendices}
+\crefname{equation}{}{}
+\creflabelformat{equation}{#2(#1)#3}
+
+%%% Enumerate %%%
+\renewcommand{\theenumi}{\textup{(}\arabic{enumi}\textup{)}}
+\renewcommand{\labelenumi}{\textup{(}\arabic{enumi}\textup{)}}
+\renewcommand{\theenumii}{\textup{(}\alph{enumii}\textup{)}}
+\renewcommand{\labelenumii}{\textup{(}\alph{enumii}\textup{)}}
+\crefname{enumi}{}{}
+\crefname{enumii}{}{}
+
+%%% Packages for writing support %%%
+\usepackage[l2tabu, orthodox]{nag}
+
+%%% theorems %%%
+\theoremstyle{plain}% 
+\newtheorem{theorem}{定理}
+\crefname{theorem}{定理}{定理}
+\newtheorem{lemma}[theorem]{補題}
+\crefname{lemma}{補題}{補題}
+\newtheorem{prop}[theorem]{命題}
+\crefname{prop}{命題}{命題}
+\newtheorem{cor}[theorem]{系}
+\crefname{cor}{系}{系}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+\crefname{definition}{定義}{定義}
+\newtheorem{example}[theorem]{例}
+\crefname{example}{例}{例}
+
+\theoremstyle{remark}
+\newtheorem*{note}{Note}
+
+\renewcommand{\proofname}{証明．}
+
+%%% weed for end of proof  %%%
+\usepackage{bxcoloremoji} %https://github.com/zr-tex8r/BXcoloremoji より
+\renewcommand{\qedsymbol}{\coloremoji*{🌿}}
+
+% BibTeX %
+\bibliographystyle{jplain}
+
+% New commands %
+%%% Mathematics %%%
+\newcommand{\mathsetintension}[2]{%
+\mleft\{ #1 \mleft| #2 \mright. \mright\}%
+}
+\newcommand{\mathsetextension}[1]{%
+\mleft\{ #1 \mright\}%
+}
+\newcommand{\mathvect}[1]{\mathbf{#1}}
+\newcommand{\mathof}[2]{\mathop{#1}\mleft(#2\mright)}
+
+\newcommand{\mathsequence}[2]{\mleft\{ #1 \mright\}_{#2}}
+
+%%%%% Symbols of Mathematics %%%%%
+\newcommand{\mathiffarrow}{\mathrel{\Longleftrightarrow}}
+\newcommand{\mathdefiffarrow}{\mathrel{:\Longleftrightarrow}}
+\newcommand{\mathdom}{\mathrm{Dom}}
+
+%%%%%%% Symbols of sets %%%%%%%
+\newcommand{\mathnat}{\mathbb{N}}
+\newcommand{\mathnatpos}{\mathbb{N}_{> 0}}
+\newcommand{\mathOrd}{\mathbf{Ord}}
+
+%%%%% Symbols of Graphs %%%%%
+\newcommand{\mathtree}[1]{\mathcal{#1}}
+
+% Greek alphabets %
+\newcommand{\Alpha}{\mathrm{A}}
+\newcommand{\Beta}{\mathrm{B}}
+\newcommand{\Epsilon}{\mathrm{E}}
+\newcommand{\Zeta}{\mathrm{Z}}
+\newcommand{\Eta}{\mathrm{H}}
+\newcommand{\Iota}{\mathrm{I}}
+\newcommand{\Kappa}{\mathrm{K}}
+\newcommand{\Omicron}{\mathrm{O}}
+\newcommand{\Tau}{\mathrm{T}}
+
+% Other symbols %
+\newcommand{\mathrelbar}{\mathrel{|}}

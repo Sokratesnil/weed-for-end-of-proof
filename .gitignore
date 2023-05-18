@@ -1,0 +1,17 @@
+*.pdf
+*.dvi
+*.log
+*.aux
+_yatexrc
+.yatexrc
+*.ps1
+*.docx
+*.html
+*.bak
+*.gz
+*.fdb_latexmk
+*.fls
+sections/diff/
+diff/
+*.orig
+diff*
